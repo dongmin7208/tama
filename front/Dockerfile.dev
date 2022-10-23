@@ -1,0 +1,15 @@
+ARG APP_HOME=/tamastudy
+#편하게작성
+
+# build stage
+FROM node:16-alpine
+WORKDIR ${APP_HOME}
+
+COPY package*.json ./
+RUN yarn install
+
+
+COPY . ${APP_HOME}
+# dev server
+EXPOSE 3000
+CMD [ "yarn", "start" ] 

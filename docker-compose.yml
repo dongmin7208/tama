@@ -1,0 +1,25 @@
+version: "3.9"
+# 컨테이너이름
+services:
+    back:
+        build: ./back
+        ports:
+            - "3001:3001"
+        volumes:
+            - ./back:/tamastudy/back
+            - /tamastudy/back/node_modules
+    front:
+        build:
+            context: ./front
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3000:3000"
+        stdin_open: true
+        volumes:
+            - ./front:/tamastudy/front
+            - /tamastudy/front/node_modules
+        depends_on:
+            - back
+# network 숙제
+# 디비mysql+ 투두리스트
+# 쿠버네티스 -> 컨테이너들을 대비, 복사
