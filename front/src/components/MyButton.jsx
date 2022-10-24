@@ -1,18 +1,9 @@
-const MyButton = (text, type, onClick) => {
-    const btnType = ["positive", "negative"].includes(type) ? type : "default";
-
+const MyButton = (text, onClick) => {
     return (
-        <button
-            className={["MyButton", `MyButton--${btnType}`].join(" ")}
-            onClick={onClick}
-        >
+        <button className={["MyButton"]} onClick={onClick}>
             {text}
         </button>
     );
-};
-
-MyButton.defaultProps = {
-    type: "default",
 };
 
 export default MyButton;
