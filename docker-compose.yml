@@ -8,6 +8,8 @@ services:
         volumes:
             - ./back:/tamastudy/back
             - /tamastudy/back/node_modules
+        networks:
+            - backend
     front:
         build:
             context: ./front
@@ -20,6 +22,15 @@ services:
             - /tamastudy/front/node_modules
         depends_on:
             - back
+        networks:
+            - frontend
+    mysql:
+        build:
+            context: ./back/database/todolist.sql
+        image: mysql:5.7
+        networks:
+            - backend
+            - frontend
 # network 숙제
 # 디비mysql+ 투두리스트
 # 쿠버네티스 -> 컨테이너들을 대비, 복사
