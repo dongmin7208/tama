@@ -31,6 +31,3 @@ services:
         networks:
             - backend
             - frontend
-# network 숙제
-# 디비mysql+ 투두리스트
-# 쿠버네티스 -> 컨테이너들을 대비, 복사
